@@ -1,0 +1,54 @@
+<html><head>
+    <title>Currently Playing</title>
+    <script>
+      function fetchCurrentTrack() {
+        fetch('/current-track')
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('track').textContent = data.title;
+            document.getElementById('artist').textContent = data.artist;
+            document.getElementById('icon').src = data.icon;
+          })
+          .catch(console.error);
+
+        setTimeout(fetchCurrentTrack, 1000);
+      }
+
+      window.onload = fetchCurrentTrack;
+    </script>
+    <style>
+        @font-face {
+            font-family: "Bourgeois W00 Medium";
+            src: url("https://db.onlinewebfonts.com/t/6dbb2ef49faa5474e0d891864e3a6c2b.eot");
+            src: url("https://db.onlinewebfonts.com/t/6dbb2ef49faa5474e0d891864e3a6c2b.eot?#iefix")format("embedded-opentype"),
+            url("https://db.onlinewebfonts.com/t/6dbb2ef49faa5474e0d891864e3a6c2b.woff2")format("woff2"),
+            url("https://db.onlinewebfonts.com/t/6dbb2ef49faa5474e0d891864e3a6c2b.woff")format("woff"),
+            url("https://db.onlinewebfonts.com/t/6dbb2ef49faa5474e0d891864e3a6c2b.ttf")format("truetype"),
+            url("https://db.onlinewebfonts.com/t/6dbb2ef49faa5474e0d891864e3a6c2b.svg#Bourgeois W00 Medium")format("svg");
+        }
+        #track {
+            font-family: 'Bourgeois W00 Medium', sans-serif;
+            position: absolute; 
+            top: -4px; 
+            left: 121px;
+            color: white;
+            font-size: 36;
+        }
+        #artist {
+            font-family: 'Bourgeois W00 Medium', sans-serif;
+            position: absolute; 
+            top: 36px; 
+            left: 121px;
+            color: #43afff;
+            font-size: 28;
+        }
+    </style>
+  </head>
+  <body>
+    <img id="icon" src="https://i.scdn.co/image/ab67616d0000b27317add53ee7ef16ac10e6f8a9" width="83" height="83" style="position: absolute; top: 21px; left: 21px;">
+    <img id="bar" src="background.png" style="position: absolute; top: 10px; left: 10px;">
+    <img id="spotify" src="spotify.png" width="53" height="53" style="position: absolute; top: 36px; left: 490px; ">
+    <p id="track">Juliet</p>
+    <p id="artist">Cavetown</p>
+
+</body></html>
