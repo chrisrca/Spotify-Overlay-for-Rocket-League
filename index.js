@@ -5,8 +5,8 @@ const app = express();
 let currentTrackInfo = {};
 
 const spotifyApi = new SpotifyWebApi({
-  clientId: '50448c45a2384e6fb84642562f9d067b',
-  clientSecret: 'f7e16262305348c6bfb2782dcef55a0c',
+  clientId: '********************************',
+  clientSecret: '********************************',
   redirectUri: 'http://localhost:8888/callback'
 });
 
